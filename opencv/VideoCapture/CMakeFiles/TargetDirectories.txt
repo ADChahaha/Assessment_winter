@@ -1,0 +1,3 @@
+/home/sora/Desktop/Assessment_winter/opencv/VideoCapture/CMakeFiles/VideoCapture.dir
+/home/sora/Desktop/Assessment_winter/opencv/VideoCapture/CMakeFiles/edit_cache.dir
+/home/sora/Desktop/Assessment_winter/opencv/VideoCapture/CMakeFiles/rebuild_cache.dir

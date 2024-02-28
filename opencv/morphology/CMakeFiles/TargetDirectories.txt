@@ -1,0 +1,3 @@
+/home/sora/Desktop/Assessment_winter/opencv/morphology/CMakeFiles/morphology.dir
+/home/sora/Desktop/Assessment_winter/opencv/morphology/CMakeFiles/edit_cache.dir
+/home/sora/Desktop/Assessment_winter/opencv/morphology/CMakeFiles/rebuild_cache.dir

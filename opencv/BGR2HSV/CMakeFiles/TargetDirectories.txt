@@ -1,0 +1,3 @@
+/home/sora/Desktop/Assessment_winter/opencv/BGR2HSV/CMakeFiles/BGR2HSV.dir
+/home/sora/Desktop/Assessment_winter/opencv/BGR2HSV/CMakeFiles/edit_cache.dir
+/home/sora/Desktop/Assessment_winter/opencv/BGR2HSV/CMakeFiles/rebuild_cache.dir

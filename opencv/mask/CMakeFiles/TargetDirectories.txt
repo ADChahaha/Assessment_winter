@@ -1,0 +1,3 @@
+/home/sora/Desktop/Assessment_winter/opencv/mask/CMakeFiles/mask.dir
+/home/sora/Desktop/Assessment_winter/opencv/mask/CMakeFiles/edit_cache.dir
+/home/sora/Desktop/Assessment_winter/opencv/mask/CMakeFiles/rebuild_cache.dir
