@@ -1,3 +1,0 @@
-/home/sora/Desktop/Assessment_winter/opencv/traverse/CMakeFiles/traverse.dir
-/home/sora/Desktop/Assessment_winter/opencv/traverse/CMakeFiles/edit_cache.dir
-/home/sora/Desktop/Assessment_winter/opencv/traverse/CMakeFiles/rebuild_cache.dir

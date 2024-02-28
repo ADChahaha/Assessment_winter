@@ -1,3 +1,0 @@
-/home/sora/Desktop/Assessment_winter/opencv/gama/CMakeFiles/gama.dir
-/home/sora/Desktop/Assessment_winter/opencv/gama/CMakeFiles/edit_cache.dir
-/home/sora/Desktop/Assessment_winter/opencv/gama/CMakeFiles/rebuild_cache.dir
