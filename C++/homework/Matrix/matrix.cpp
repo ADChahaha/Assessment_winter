@@ -13,6 +13,8 @@ Matrix::Matrix(int matrix_rows,int matrix_cols)
 
 Matrix::~Matrix()
 {
+    if(matrix == NULL)
+        return;
     for(int i = 0;i < cols;++i)
     {
         delete[] matrix[i];
@@ -22,6 +24,8 @@ Matrix::~Matrix()
 
 Matrix Matrix::operator*(Matrix& other)
 {
+    if((rows != other.rows) || (cols != other.cols))
+        return Matrix();
     Matrix new_matrix(rows,other.cols);
     for(int row = 0;row < new_matrix.rows;++row)
     {
@@ -50,6 +54,8 @@ std::ostream& operator<<(std::ostream& os,const Matrix& matrix)
     return os;
 }
 
+
+
 std::istream& operator>>(std::istream& is,Matrix& matrix)
 {
     for(int i = 0;i < matrix.rows;++i)
@@ -60,4 +66,150 @@ std::istream& operator>>(std::istream& is,Matrix& matrix)
         }
     }
     return is;
+}
+
+Matrix::Matrix(int rows, int cols, int** matrix)   
+{
+    this->rows = rows;
+    this->cols = cols;
+    this->matrix = new int*[rows];
+    for(int i = 0;i < cols;++i)
+    {
+        this->matrix[i] = new int[cols];
+    }
+    for(int i = 0;i < rows;++i)
+    {
+        for(int j = 0;j < cols;++j)
+        {
+            this->matrix[i][j] = matrix[i][j];
+        }
+    }
+}
+
+Matrix::Matrix(const Matrix& other)
+{
+    rows = other.rows;
+    cols = other.cols;
+    this->matrix = new int*[rows];
+    for(int i = 0;i < cols;++i)
+    {
+        this->matrix[i] = new int[cols];
+    }
+    for(int i = 0;i < rows;++i)
+    {
+        for(int j = 0;j < cols;++j)
+        {
+            this->matrix[i][j] = other.matrix[i][j];
+        }
+    }
+}
+
+Matrix::Matrix(Matrix&& other)
+{
+    rows = other.rows;
+    cols = other.cols;
+    this->matrix = std::move(other.matrix);
+    other.matrix = NULL;
+}
+
+Matrix::Matrix()
+{
+    rows = cols = 0;
+    matrix = NULL;
+}
+
+Matrix& Matrix::operator=(const Matrix& other)
+{
+    if(matrix != NULL)
+    {
+        deleteData();
+    }
+    rows = other.rows;
+    cols = other.cols;
+    this->matrix = new int*[rows];
+    for(int i = 0;i < cols;++i)
+    {
+        this->matrix[i] = new int[cols];
+    }
+    for(int i = 0;i < rows;++i)
+    {
+        for(int j = 0;j < cols;++j)
+        {
+            this->matrix[i][j] = other.matrix[i][j];
+        }
+    }
+    return *this;
+}
+
+Matrix& Matrix::operator=(Matrix &&other)
+{
+    if(matrix != NULL)
+    {
+        deleteData();
+    }
+    rows = other.rows;
+    cols = other.cols;
+    this->matrix = other.matrix;
+    other.matrix = NULL;
+    return *this;
+}
+
+Matrix Matrix::operator+(const Matrix& other)
+{
+    if((rows != other.rows) || (cols != other.cols))
+        return Matrix();
+    Matrix result(*this);
+    for(int i = 0;i < rows;++i)
+    {
+        for(int j = 0;j < cols;++j)
+        {
+            result.matrix[i][j] += other.matrix[i][j];
+        }
+    }
+    return result;
+}
+
+Matrix Matrix::operator-(const Matrix& other)
+{
+    if((rows != other.rows) || (cols != other.cols))
+        return Matrix();
+    Matrix result(*this);
+    for(int i = 0;i < rows;++i)
+    {
+        for(int j = 0;j < cols;++j)
+        {
+            result.matrix[i][j] -= other.matrix[i][j];
+        }
+    }
+    return result;
+}
+
+Matrix Matrix::operator/(const Matrix& other)
+{
+    //inverse matrix
+
+}
+
+bool Matrix::operator==(const Matrix& other) 
+{
+    if(rows != other.rows || cols != other.cols)
+        return false;
+    for(int i = 0;i < rows;++i)
+    {
+        for(int j = 0;j < cols;++j)
+        {
+            if(matrix[i][j] != other.matrix[i][j])
+                return false;
+        }
+    }
+    return true;
+}
+
+void Matrix::deleteData()
+{
+    for(int i = 0;i < cols;++i)
+    {
+        delete[] matrix[i];
+    }
+    delete[] matrix;
 }

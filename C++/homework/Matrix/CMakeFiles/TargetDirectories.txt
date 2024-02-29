@@ -1,0 +1,3 @@
+/home/sora/Desktop/Assessment_winter/C++/homework/Matrix/CMakeFiles/matrix.dir
+/home/sora/Desktop/Assessment_winter/C++/homework/Matrix/CMakeFiles/edit_cache.dir
+/home/sora/Desktop/Assessment_winter/C++/homework/Matrix/CMakeFiles/rebuild_cache.dir
