@@ -13,24 +13,34 @@ public:
         vector<int> longestSubsequence;
         vector<int> length(nums.size());
         vector<vector<int>> Subsequnce(nums.size());
+        int index,max;
         for(int i = nums.size() - 1;i >= 0;i--)
         {
+            max = 0;
+            index = 0;
             length[i] = 1;
             Subsequnce[i].push_back(nums[i]);
-            //find first bigger element
+            //find bigger and longest 
             for(int j = i + 1;j < nums.size();++j)
             {
-                if(nums[j] > nums[i])
+                if(nums[i] < nums[j] && max < length[j])
                 {
-                    //add length and all elements of j to i
-                    length[i] += length[j];
-                    addElement(Subsequnce[i],Subsequnce[j]);
-                    break;
+                    max = length[j];
+                    index = j;
                 }
             }
+            if(index != 0)
+            {
+                length[i] += length[index];
+                addElement(Subsequnce[i],Subsequnce[index]);
+            }
+            if(maxLength < length[i])
+            {
+                maxLength = length[i];
+                longestSubsequence = Subsequnce[i];
+            }
         }
-        maxLength = length[0];
-        longestSubsequence = Subsequnce[0];
+
         return { maxLength, longestSubsequence };
     }
 private:
@@ -44,7 +54,7 @@ void LongestIncreasingSubsequence::addElement(vector<int>& i,vector<int>& j)
     }
 }
 int main() {
-    vector<int> input = {10, 22, 9, 33, 21, 50, 41, 60, 80};
+    vector<int> input = {0,100,1,2,3,4};
 
     auto result = LongestIncreasingSubsequence::findLongestIncreasingSubsequence(input);
     cout << "Longest Increasing Subsequence: ";
